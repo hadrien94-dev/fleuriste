@@ -1,1161 +1,884 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head> 
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>L'Atelier Végétal — Artisan Fleuriste & Créations Éco-responsables · Nantes</title>
-<meta name="description" content="Artisan fleuriste à Nantes. Bouquets de saison, compositions pour événements et abonnements floraux. Livraison rapide et Click & Collect.">
+<title>Eve Casalta — L'Atelier des Fleurs · Fleuriste d'art · Le Vésinet (78)</title>
+<meta name="description" content="Fleuriste d'art au Vésinet. Bouquets de saison, compositions événements & mariages, hôtellerie de luxe. 4 Rue Thiers, 78110 Le Vésinet · 01 30 53 67 61.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg-deep: #f4f6f4;
+  --bg: #f7f4f0;
   --bg-card: #ffffff;
-  --bg-elevated: #eaebea;
-  --primary: #2d4a3e;
-  --primary-light: #4a6b5d;
-  --accent: #d28d79;
-  --cream: #1e2b24;
-  --cream-dim: #38463f;
-  --text-body: #55635a;
-  --border: rgba(45,74,62,0.15);
-  --border-subtle: rgba(0,0,0,0.04);
-  --font-serif: 'Playfair Display', Georgia, serif;
-  --font-sans: 'Montserrat', sans-serif;
-  --radius: 4px;
-  --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --bg-warm: #f0ece5;
+  --primary: #3b5240;
+  --primary-light: #567a5e;
+  --gold: #b08d57;
+  --gold-light: #d4b07a;
+  --ink: #1e2820;
+  --ink-dim: #3d4f42;
+  --muted: #6e7d72;
+  --border: rgba(59,82,64,0.12);
+  --border-fine: rgba(59,82,64,0.07);
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'DM Sans', sans-serif;
+  --ease: 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-  font-size: 16px;
-}
-
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
 body {
-  background-color: var(--bg-deep);
-  color: var(--cream-dim);
-  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--ink-dim);
+  font-family: var(--font-body);
   font-weight: 300;
   line-height: 1.7;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
+::selection { background: var(--primary); color: #fff; }
+a { color: inherit; text-decoration: none; }
 
-::selection {
-  background: var(--primary);
-  color: #ffffff;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
+/* ── NAV ── */
 nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1.25rem 5vw;
-  background: rgba(244, 246, 244, 0.92);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border-subtle);
-  transition: var(--transition);
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.2rem 5vw;
+  background: rgba(247,244,240,0.94);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border-fine);
+  transition: var(--ease);
 }
-
-nav.scrolled {
-  padding: 0.9rem 5vw;
-  background: rgba(244, 246, 244, 0.98);
-  box-shadow: 0 4px 20px rgba(45,74,62,0.04);
-}
+nav.scrolled { padding: 0.85rem 5vw; box-shadow: 0 2px 16px rgba(30,40,32,0.05); }
 
 .nav-logo {
-  font-family: var(--font-serif);
-  font-size: 1.25rem;
-  font-weight: 500;
-  color: var(--cream);
-  letter-spacing: 0.04em;
-  white-space: nowrap;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--ink);
+  letter-spacing: 0.03em;
 }
+.nav-logo span { color: var(--primary); font-style: italic; }
 
-.nav-logo span {
-  color: var(--primary);
+.nav-links {
+  display: flex; align-items: center; gap: 2rem;
+  list-style: none;
 }
-
-.nav-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.65rem 1.4rem;
-  background: transparent;
-  border: 1px solid var(--primary);
-  color: var(--primary);
-  font-family: var(--font-sans);
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: var(--transition);
-  white-space: nowrap;
+.nav-links a {
+  font-size: 0.78rem; letter-spacing: 0.09em; text-transform: uppercase;
+  color: var(--muted); font-weight: 400; transition: color var(--ease);
 }
+.nav-links a:hover { color: var(--primary); }
 
-.nav-cta:hover {
-  background: var(--primary);
-  border-color: var(--primary);
-  color: #ffffff;
+.nav-tel {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.55rem 1.3rem;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-size: 0.74rem; font-weight: 500; letter-spacing: 0.09em;
+  text-transform: uppercase; transition: var(--ease);
 }
+.nav-tel:hover { background: var(--gold); color: #fff; }
 
+/* ── HERO ── */
 .hero {
   min-height: 100svh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  padding: 7rem 5vw 4rem;
-  gap: 4rem;
-  position: relative;
-  overflow: hidden;
+  display: grid; grid-template-columns: 1fr 1fr;
+  align-items: center; padding: 7rem 5vw 4rem; gap: 5rem;
+  position: relative; overflow: hidden;
 }
-
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at 20% 50%, rgba(45,74,62,0.06) 0%, transparent 60%);
-  pointer-events: none;
-}
-
 .hero-left {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  position: relative;
-  z-index: 2;
-  animation: fadeSlideUp 1s ease forwards;
+  display: flex; flex-direction: column; gap: 2.2rem;
+  position: relative; z-index: 2;
+  animation: fadeUp 1s ease forwards;
 }
-
-@keyframes fadeSlideUp {
-  from { opacity: 0; transform: translateY(30px); }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
   to { opacity: 1; transform: translateY(0); }
 }
-
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.45rem 1rem;
-  border: 1px solid var(--border);
-  background: rgba(45,74,62,0.03);
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  color: var(--primary);
-  width: fit-content;
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 0.7rem;
+  font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--gold); font-weight: 500;
 }
-
+.hero-eyebrow::before {
+  content: ''; display: block; width: 28px; height: 1px; background: var(--gold-light);
+}
 .hero-title {
-  font-family: var(--font-serif);
-  font-size: clamp(2.6rem, 5vw, 4.2rem);
-  font-weight: 400;
-  line-height: 1.12;
-  color: var(--cream);
-  letter-spacing: -0.01em;
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 5.5vw, 5rem);
+  font-weight: 300; line-height: 1.05;
+  color: var(--ink); letter-spacing: -0.01em;
 }
-
-.hero-title .accent {
-  color: var(--accent);
-  font-style: italic;
+.hero-title em { font-style: italic; color: var(--primary); }
+.hero-body {
+  font-size: 0.92rem; line-height: 1.85;
+  color: var(--muted); max-width: 400px;
 }
-
-.hero-subtitle {
-  font-size: 0.92rem;
-  line-height: 1.8;
-  color: var(--text-body);
-  max-width: 420px;
-  font-weight: 400;
-}
-
-.hero-divider {
-  width: 48px;
-  height: 1px;
-  background: linear-gradient(90deg, var(--primary), transparent);
-}
-
-.hero-actions {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  margin-top: 0.5rem;
-}
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 0.3rem; }
 
 .btn-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
+  display: inline-flex; align-items: center; gap: 0.6rem;
   padding: 0.9rem 2rem;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-  color: #ffffff;
-  font-family: var(--font-sans);
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  transition: var(--transition);
-  border: none;
-  cursor: pointer;
+  background: var(--primary); color: #fff;
+  font-family: var(--font-body); font-size: 0.78rem;
+  font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase;
+  transition: var(--ease); border: none; cursor: pointer;
 }
+.btn-primary:hover { background: var(--primary-light); transform: translateY(-2px); }
 
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(45,74,62,0.2);
-}
-
-.btn-secondary {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: 0.6rem;
   padding: 0.9rem 2rem;
-  background: transparent;
-  color: var(--cream-dim);
-  font-family: var(--font-sans);
-  font-size: 0.8rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  border: 1px solid var(--border-subtle);
-  transition: var(--transition);
-  cursor: pointer;
+  background: transparent; color: var(--ink-dim);
+  font-size: 0.78rem; font-weight: 400;
+  letter-spacing: 0.09em; text-transform: uppercase;
+  border: 1px solid var(--border); transition: var(--ease); cursor: pointer;
 }
-
-.btn-secondary:hover {
-  border-color: var(--primary);
-  color: var(--primary);
-}
+.btn-ghost:hover { border-color: var(--primary); color: var(--primary); }
 
 .hero-right {
-  position: relative;
-  height: 560px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  animation: fadeIn 1.2s ease 0.3s both;
+  position: relative; height: 580px;
+  animation: fadeIn 1.4s ease 0.2s both;
 }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+.hero-img-frame {
+  width: 100%; height: 100%; overflow: hidden; position: relative;
 }
-
-.hero-image-wrap {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  box-shadow: 0 20px 40px rgba(45,74,62,0.06);
+.hero-img-frame img {
+  width: 100%; height: 100%; object-fit: cover;
+  animation: drift 14s ease-in-out infinite;
 }
-
-.hero-image-wrap::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(244,246,244,0.15) 0%, transparent 60%);
-  z-index: 1;
-  pointer-events: none;
+@keyframes drift {
+  0%, 100% { transform: scale(1.05) translateY(0); }
+  50% { transform: scale(1.08) translateY(-8px); }
 }
-
-.hero-image-wrap::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 80px;
-  background: linear-gradient(90deg, var(--bg-deep), transparent);
-  z-index: 2;
-  pointer-events: none;
+.hero-img-frame::after {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+  width: 60px; background: linear-gradient(90deg, var(--bg), transparent); z-index: 1;
 }
-
-.hero-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  animation: floatZoom 12s ease-in-out infinite;
-  transform-origin: center;
+.hero-frame-border {
+  position: absolute; inset: 14px;
+  border: 1px solid rgba(176,141,87,0.35); z-index: 2; pointer-events: none;
 }
-
-@keyframes floatZoom {
-  0%, 100% { transform: scale(1.05) translateY(0px); }
-  33% { transform: scale(1.08) translateY(-6px); }
-  66% { transform: scale(1.03) translateY(4px); }
-}
-
-.hero-frame {
-  position: absolute;
-  inset: 16px;
-  border: 1px solid rgba(45,74,62,0.2);
-  z-index: 3;
-  pointer-events: none;
-}
-
-.trust-bar {
-  padding: 4rem 5vw;
+.hero-tag {
+  position: absolute; bottom: 2rem; left: -1.5rem;
   background: var(--bg-card);
-  border-top: 1px solid var(--border-subtle);
-  border-bottom: 1px solid var(--border-subtle);
+  border: 1px solid var(--border);
+  padding: 1rem 1.4rem;
+  font-size: 0.78rem; z-index: 5;
+}
+.hero-tag strong {
+  display: block; font-family: var(--font-display);
+  font-size: 1.4rem; font-weight: 400; color: var(--ink); margin-bottom: 0.1rem;
+}
+.hero-tag span { color: var(--muted); font-size: 0.72rem; letter-spacing: 0.06em; }
+
+/* ── GALERIE ── */
+.gallery-section {
+  padding: 5rem 5vw;
+  background: var(--bg-warm);
+  border-top: 1px solid var(--border-fine);
+}
+.gallery-section .section-tag {
+  text-align: center;
+  font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 0.6rem;
+}
+.gallery-section .section-title {
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 300; color: var(--ink); line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+.gallery-section .section-title em { font-style: italic; color: var(--primary); }
+.gallery-section .section-subtitle {
+  text-align: center;
+  font-size: 0.85rem; color: var(--muted);
+  max-width: 500px; margin: 0 auto 3rem;
 }
 
-.trust-inner {
-  max-width: 1200px;
-  margin: 0 auto;
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 260px 260px;
+  gap: 10px;
+  max-width: 1100px; margin: 0 auto;
 }
-
-.trust-rating {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.2rem;
-  margin-bottom: 3rem;
-  flex-wrap: wrap;
+.gallery-item {
+  overflow: hidden; position: relative; background: var(--bg-warm);
 }
-
-.trust-stars {
-  color: var(--accent);
-  font-size: 1.1rem;
-  letter-spacing: 0.15em;
+.gallery-item:first-child { grid-row: 1 / 3; }
+.gallery-item img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.7s ease;
 }
-
-.trust-score {
-  font-family: var(--font-serif);
-  font-size: 2rem;
-  font-weight: 400;
-  color: var(--cream);
+.gallery-item:hover img { transform: scale(1.06); }
+.gallery-label {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 1.5rem 1.2rem 1rem;
+  background: linear-gradient(transparent, rgba(30,40,32,0.55));
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 1.05rem; font-weight: 300; font-style: italic;
+  opacity: 0; transition: opacity 0.4s ease;
 }
+.gallery-item:hover .gallery-label { opacity: 1; }
 
-.trust-label {
-  font-size: 0.78rem;
-  letter-spacing: 0.08em;
-  color: var(--text-body);
-  text-transform: uppercase;
-  padding-left: 1.2rem;
-  border-left: 1px solid var(--border);
+/* ── SAISON ── */
+.saison-section {
+  padding: 6rem 5vw;
+  max-width: 1200px; margin: 0 auto;
+}
+.saison-inner {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;
+}
+.saison-image { position: relative; }
+.saison-img-wrap { overflow: hidden; aspect-ratio: 4/5; }
+.saison-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+.saison-badge {
+  position: absolute; top: 2rem; right: -1.5rem;
+  background: var(--primary); color: #fff;
+  padding: 1.2rem 1.5rem; text-align: center;
+  font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase;
+}
+.saison-badge strong {
+  display: block; font-family: var(--font-display);
+  font-size: 2rem; font-weight: 300; letter-spacing: 0;
+}
+.saison-content { display: flex; flex-direction: column; gap: 2rem; }
+.season-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
+.season-list li {
+  display: flex; align-items: flex-start; gap: 1rem;
+  padding-bottom: 1rem; border-bottom: 1px solid var(--border-fine);
+}
+.season-list li:last-child { border-bottom: none; }
+.season-dot {
+  flex-shrink: 0; width: 8px; height: 8px; border-radius: 50%;
+  background: var(--gold); margin-top: 0.6rem;
+}
+.season-list h4 {
+  font-family: var(--font-display); font-size: 1.1rem;
+  font-weight: 400; color: var(--ink); margin-bottom: 0.15rem;
+}
+.season-list p { font-size: 0.82rem; color: var(--muted); line-height: 1.7; }
+
+/* ── EVENTS ── */
+.events-section {
+  padding: 6rem 5vw;
+  background: var(--primary);
+  overflow: hidden;
+  position: relative;
+}
+.events-section::before {
+  content: 'Événements';
+  position: absolute; right: -2rem; bottom: -1rem;
+  font-family: var(--font-display);
+  font-size: 12rem; font-weight: 300;
+  color: rgba(255,255,255,0.04);
+  white-space: nowrap; pointer-events: none;
+}
+.events-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start;
+}
+.events-header { color: #fff; }
+.events-tag {
+  font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold-light); margin-bottom: 0.8rem;
+}
+.events-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  font-weight: 300; line-height: 1.1;
+  color: #fff; margin-bottom: 1.5rem;
+}
+.events-title em { font-style: italic; color: var(--gold-light); }
+.events-body { font-size: 0.88rem; color: rgba(255,255,255,0.65); line-height: 1.85; margin-bottom: 2rem; }
+
+.events-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
+.events-list li {
+  display: flex; align-items: center; gap: 1rem;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  font-size: 0.85rem; color: rgba(255,255,255,0.75);
+}
+.events-list li::before {
+  content: ''; flex-shrink: 0; width: 6px; height: 6px;
+  border-radius: 50%; background: var(--gold-light);
+}
+.btn-light {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  padding: 0.9rem 2rem; margin-top: 2rem;
+  border: 1px solid rgba(255,255,255,0.4); color: #fff;
+  font-size: 0.78rem; font-weight: 400;
+  letter-spacing: 0.09em; text-transform: uppercase; transition: var(--ease);
+}
+.btn-light:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.7); }
+
+.events-form {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 2.5rem;
+  display: flex; flex-direction: column; gap: 1.2rem;
+}
+.form-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem; font-weight: 300; color: #fff; margin-bottom: 0.2rem;
+}
+.form-sub { font-size: 0.78rem; color: rgba(255,255,255,0.5); margin-bottom: 0.5rem; }
+
+.field-label {
+  font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5); display: block; margin-bottom: 0.45rem; font-weight: 400;
+}
+.field-input, .field-select {
+  width: 100%; padding: 0.8rem 1rem;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: #fff;
+  font-family: var(--font-body); font-size: 0.85rem; font-weight: 300;
+  outline: none; appearance: none; -webkit-appearance: none;
+  transition: border-color var(--ease);
+  border-radius: 0;
+}
+.field-input:focus, .field-select:focus { border-color: rgba(176,141,87,0.6); }
+.field-input::placeholder { color: rgba(255,255,255,0.3); }
+.field-select option { background: var(--primary); color: #fff; }
+.field-select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='rgba(255,255,255,0.5)' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 1rem center;
+  padding-right: 2.5rem; cursor: pointer;
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.form-submit-events {
+  padding: 0.9rem 2rem; background: var(--gold);
+  border: none; color: #fff;
+  font-family: var(--font-body); font-size: 0.78rem;
+  font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase;
+  cursor: pointer; transition: var(--ease); width: 100%;
+}
+.form-submit-events:hover { background: var(--gold-light); }
+.form-note-events { font-size: 0.71rem; color: rgba(255,255,255,0.35); text-align: center; }
+
+/* ── AVIS ── */
+.reviews-section {
+  padding: 6rem 5vw;
+  background: var(--bg-card);
+  border-top: 1px solid var(--border-fine);
+}
+.reviews-inner { max-width: 1100px; margin: 0 auto; }
+.reviews-header { text-align: center; margin-bottom: 1.5rem; }
+.reviews-score {
+  display: flex; align-items: center; justify-content: center; gap: 1.5rem;
+  margin-bottom: 3.5rem; flex-wrap: wrap;
+}
+.score-number {
+  font-family: var(--font-display);
+  font-size: 4rem; font-weight: 300; color: var(--ink);
+  line-height: 1;
+}
+.score-number sup { font-size: 1.2rem; vertical-align: super; color: var(--muted); }
+.score-stars { color: var(--gold); font-size: 1.15rem; letter-spacing: 0.15em; }
+.score-label {
+  font-size: 0.75rem; color: var(--muted); letter-spacing: 0.05em;
+  padding-left: 1.5rem; border-left: 1px solid var(--border);
 }
 
 .reviews-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
 }
-
 .review-card {
-  padding: 2rem 2.2rem;
-  background: var(--bg-elevated);
-  border: 1px solid var(--border-subtle);
-  position: relative;
-  transition: var(--transition);
+  padding: 2rem; background: var(--bg);
+  border: 1px solid var(--border-fine); position: relative;
+  transition: var(--ease);
 }
-
 .review-card:hover {
-  border-color: var(--border);
-  background: var(--bg-card);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+  border-color: var(--border); background: var(--bg-card);
 }
-
-.review-card::before {
-  content: '"';
-  position: absolute;
-  top: -0.5rem;
-  left: 1.8rem;
-  font-family: var(--font-serif);
-  font-size: 4rem;
-  color: var(--accent);
-  opacity: 0.3;
-  line-height: 1;
+.review-quote {
+  position: absolute; top: 1rem; right: 1.5rem;
+  font-family: var(--font-display); font-size: 3.5rem;
+  color: var(--gold-light); opacity: 0.25; line-height: 1;
+  pointer-events: none;
 }
-
+.review-stars { color: var(--gold); font-size: 0.72rem; letter-spacing: 0.1em; margin-bottom: 0.8rem; }
 .review-text {
-  font-size: 0.88rem;
-  line-height: 1.75;
-  color: var(--cream-dim);
-  font-style: italic;
-  margin-bottom: 1.2rem;
+  font-size: 0.86rem; line-height: 1.78; color: var(--ink-dim);
+  font-style: italic; margin-bottom: 1.2rem;
 }
-
 .review-author {
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--primary);
+  font-size: 0.72rem; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--primary);
 }
+.review-date { font-size: 0.68rem; color: var(--muted); margin-top: 0.2rem; }
 
-.review-stars {
-  color: var(--accent);
-  font-size: 0.7rem;
-  letter-spacing: 0.1em;
-  margin-bottom: 0.5rem;
+/* ── INFOS BOUTIQUE ── */
+.info-section {
+  padding: 6rem 5vw;
+  background: var(--bg);
 }
-
-.services {
-  padding: 7rem 5vw;
-  max-width: 1200px;
-  margin: 0 auto;
+.info-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: start;
 }
-
-.section-header {
-  text-align: center;
-  margin-bottom: 4.5rem;
+.info-left { display: flex; flex-direction: column; gap: 2.5rem; }
+.info-detail { display: flex; flex-direction: column; gap: 0.3rem; }
+.info-detail-label {
+  font-size: 0.67rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--gold); font-weight: 500;
 }
+.info-detail-value { font-size: 0.9rem; color: var(--ink-dim); line-height: 1.65; }
+.info-detail-sub { font-size: 0.78rem; color: var(--muted); font-style: italic; }
 
-.section-tag {
-  display: inline-block;
-  font-size: 0.7rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--primary);
-  margin-bottom: 1rem;
+.hours-table { border-collapse: collapse; width: 100%; margin-top: 0.5rem; }
+.hours-table td {
+  padding: 0.5rem 0; font-size: 0.85rem; color: var(--ink-dim);
+  border-bottom: 1px solid var(--border-fine);
+  vertical-align: middle;
 }
+.hours-table td:first-child { color: var(--muted); font-size: 0.78rem; letter-spacing: 0.05em; padding-right: 2rem; }
+.hours-table tr.today td { color: var(--primary); font-weight: 500; }
+.hours-table tr.fermee td { color: var(--muted); opacity: 0.6; }
 
-.section-title {
-  font-family: var(--font-serif);
-  font-size: clamp(1.9rem, 3.5vw, 2.8rem);
-  font-weight: 400;
-  color: var(--cream);
-  line-height: 1.25;
+.tel-link {
+  display: inline-flex; align-items: center; gap: 0.75rem;
+  padding: 1rem 1.8rem; background: var(--primary); color: #fff;
+  font-size: 0.8rem; font-weight: 500;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  transition: var(--ease); width: fit-content;
 }
+.tel-link:hover { background: var(--primary-light); transform: translateY(-2px); }
 
-.section-title em {
-  font-style: italic;
-  color: var(--accent);
-}
-
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-.service-card {
-  background: var(--bg-card);
-  padding: 3rem 2.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  transition: var(--transition);
-  position: relative;
-  overflow: hidden;
-  border: 1px solid var(--border-subtle);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.01);
-}
-
-.service-card::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--primary), transparent);
-  transform: scaleX(0);
-  transition: var(--transition);
-}
-
-.service-card:hover::after {
-  transform: scaleX(1);
-}
-
-.service-card:hover {
-  background: var(--bg-deep);
-  transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(45,74,62,0.08);
-}
-
-.service-icon {
-  width: 42px;
-  height: 42px;
+.map-wrap {
+  width: 100%; aspect-ratio: 4/3;
   border: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.1rem;
-  color: var(--primary);
-  background: rgba(45,74,62,0.03);
+  overflow: hidden; position: relative;
 }
+.map-wrap iframe { width: 100%; height: 100%; border: none; }
 
-.service-number {
-  font-family: var(--font-serif);
-  font-size: 0.75rem;
-  color: var(--primary);
-  letter-spacing: 0.1em;
-}
-
-.service-name {
-  font-family: var(--font-serif);
-  font-size: 1.4rem;
-  font-weight: 400;
-  color: var(--cream);
-  line-height: 1.25;
-}
-
-.service-desc {
-  font-size: 0.85rem;
-  line-height: 1.8;
-  color: var(--text-body);
-}
-
-.service-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.72rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--primary);
-  margin-top: auto;
-  transition: var(--transition);
-  font-weight: 500;
-}
-
-.service-link:hover {
-  color: var(--accent);
-  gap: 0.8rem;
-}
-
-.contact {
-  padding: 7rem 5vw;
-  background: var(--bg-card);
-  border-top: 1px solid var(--border-subtle);
-}
-
-.contact-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 5rem;
-  align-items: start;
-}
-
-.contact-info {
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
-}
-
-.contact-label {
-  font-size: 0.7rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--primary);
-  margin-bottom: 0.3rem;
-}
-
-.contact-title {
-  font-family: var(--font-serif);
-  font-size: 2.2rem;
-  font-weight: 400;
-  color: var(--cream);
-  line-height: 1.3;
-}
-
-.contact-detail-group {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.contact-detail {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
-.detail-label {
-  font-size: 0.68rem;
-  letter-spacing: 14em;
-  text-transform: uppercase;
-  color: var(--primary);
-  font-weight: 500;
-}
-
-.detail-value {
-  font-size: 0.9rem;
-  color: var(--cream-dim);
-  line-height: 1.6;
-}
-
-.detail-sub {
-  font-size: 0.78rem;
-  color: var(--text-body);
-  font-style: italic;
-}
-
-.contact-phone-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.7rem;
-  margin-top: 1rem;
-  padding: 1rem 1.8rem;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-  color: #ffffff;
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  transition: var(--transition);
-  width: fit-content;
-}
-
-.contact-phone-link:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(45,74,62,0.25);
-}
-
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  background: var(--bg-deep);
-  padding: 2.5rem;
-  border: 1px solid var(--border-subtle);
-}
-
-.form-header {
-  margin-bottom: 0.5rem;
-}
-
-.form-title {
-  font-family: var(--font-serif);
-  font-size: 1.5rem;
-  font-weight: 400;
-  color: var(--cream);
-  margin-bottom: 0.4rem;
-}
-
-.form-subtitle {
-  font-size: 0.8rem;
-  color: var(--text-body);
-}
-
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
-
-.field-wrap {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.field-label {
-  font-size: 0.68rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--primary);
-  font-weight: 500;
-}
-
-.field-input,
-.field-select {
-  padding: 0.85rem 1.1rem;
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  color: var(--cream-dim);
-  font-family: var(--font-sans);
-  font-size: 0.85rem;
-  font-weight: 400;
-  outline: none;
-  transition: var(--transition);
-  appearance: none;
-  -webkit-appearance: none;
-  width: 100%;
-  border-radius: 0;
-}
-
-.field-input:focus,
-.field-select:focus {
-  border-color: var(--primary);
-  background: var(--bg-card);
-  box-shadow: 0 0 10px rgba(45,74,62,0.05);
-}
-
-.field-input::placeholder {
-  color: #a4b3ab;
-}
-
-.field-select {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%232d4a3e' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 1rem center;
-  padding-right: 2.5rem;
-  cursor: pointer;
-}
-
-.field-select option {
-  background: var(--bg-card);
-  color: var(--cream-dim);
-}
-
-.form-submit {
-  padding: 1rem 2rem;
-  background: transparent;
-  border: 1px solid var(--primary);
-  color: var(--primary);
-  font-family: var(--font-sans);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: var(--transition);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.6rem;
-  width: 100%;
-}
-
-.form-submit:hover {
-  background: var(--primary);
-  border-color: var(--primary);
-  color: #ffffff;
-}
-
-.form-note {
-  font-size: 0.72rem;
-  color: var(--text-body);
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-}
-
-.success-msg {
-  display: none;
-  padding: 1.2rem 1.5rem;
-  background: rgba(45,74,62,0.08);
-  border: 1px solid var(--primary);
-  color: var(--primary);
-  font-size: 0.85rem;
-  text-align: center;
-  font-weight: 500;
-}
-
+/* ── FOOTER ── */
 footer {
-  padding: 2.5rem 5vw;
-  border-top: 1px solid var(--border-subtle);
-  background: var(--bg-elevated);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 1rem;
+  padding: 2rem 5vw;
+  background: var(--ink);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 1rem;
+}
+.footer-brand {
+  font-family: var(--font-display); font-size: 1rem; font-weight: 300;
+  color: rgba(255,255,255,0.7); letter-spacing: 0.06em;
+}
+.footer-brand em { font-style: italic; color: var(--gold-light); }
+.footer-copy { font-size: 0.7rem; color: rgba(255,255,255,0.3); }
+.footer-links { display: flex; gap: 1.5rem; }
+.footer-links a {
+  font-size: 0.7rem; color: rgba(255,255,255,0.4); letter-spacing: 0.05em;
+  transition: color 0.3s;
+}
+.footer-links a:hover { color: rgba(255,255,255,0.75); }
+
+/* ── section shared ── */
+.section-tag {
+  font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 0.6rem;
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 300; color: var(--ink); line-height: 1.2;
+}
+.section-title em { font-style: italic; color: var(--primary); }
+.section-sub { font-size: 0.88rem; color: var(--muted); margin-top: 0.7rem; }
+.success-msg {
+  display: none; padding: 1rem 1.2rem;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid var(--gold);
+  color: var(--gold-light); font-size: 0.82rem; text-align: center;
 }
 
-.footer-left {
-  font-size: 0.72rem;
-  color: var(--text-body);
-  opacity: 0.8;
-  letter-spacing: 0.04em;
+/* ── RESPONSIVE ── */
+@media (max-width: 960px) {
+  .nav-links { display: none; }
+  .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 5.5rem; gap: 2.5rem; }
+  .hero-right { height: 340px; order: -1; }
+  .hero-tag { left: 0; bottom: 1rem; }
+  .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 220px 220px; }
+  .gallery-item:first-child { grid-row: auto; grid-column: 1 / 3; }
+  .saison-inner, .events-inner, .info-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .saison-badge { right: 0; top: 1rem; }
+  .reviews-grid { grid-template-columns: 1fr; }
 }
-
-.footer-center {
-  font-family: var(--font-serif);
-  font-size: 0.85rem;
-  color: var(--primary);
-  font-weight: 500;
-}
-
-.footer-right {
-  font-size: 0.72rem;
-  color: var(--text-body);
-  opacity: 0.8;
-}
-
-.footer-right a {
-  color: var(--primary);
-  transition: var(--transition);
-}
-
-.footer-right a:hover {
-  color: var(--accent);
-}
-
-@media (max-width: 900px) {
-  .hero {
-    grid-template-columns: 1fr;
-    padding-top: 6rem;
-    min-height: auto;
-    gap: 2.5rem;
-  }
-
-  .hero-right {
-    height: 320px;
-    order: -1;
-  }
-
-  .reviews-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .services-grid {
-    grid-template-columns: 1fr;
-    gap: 15px;
-  }
-
-  .contact-inner {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-  
-  .contact-form {
-    padding: 1.5rem;
-  }
-}
-
-@media (max-width: 640px) {
-  nav {
-    padding: 1rem 4vw;
-  }
-
-  .nav-logo {
-    font-size: 1rem;
-  }
-
-  .nav-cta {
-    font-size: 0.65rem;
-    padding: 0.5rem 0.9rem;
-  }
-
-  .hero {
-    padding: 5.5rem 5vw 3rem;
-  }
-
-  .hero-actions {
-    flex-direction: column;
-  }
-
-  .btn-primary, .btn-secondary, .contact-phone-link {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .trust-bar {
-    padding: 3rem 5vw;
-  }
-
-  .trust-rating {
-    flex-direction: column;
-    gap: 0.6rem;
-  }
-
-  .form-row {
-    grid-template-columns: 1fr;
-  }
-
-  footer {
-    flex-direction: column;
-    text-align: center;
-  }
+@media (max-width: 600px) {
+  .gallery-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+  .gallery-item:first-child { grid-column: auto; }
+  .gallery-item { height: 220px; }
+  .form-row { grid-template-columns: 1fr; }
+  .hero-actions { flex-direction: column; }
+  .btn-primary, .btn-ghost, .tel-link { width: 100%; justify-content: center; }
+  footer { flex-direction: column; text-align: center; }
 }
 </style>
 </head>
 <body>
 
 <nav id="mainNav">
-  <a href="#" class="nav-logo">L'Atelier <span>Végétal</span></a>
-  <a href="tel:0240000000" class="nav-cta">Commander&nbsp;: 02&nbsp;40&nbsp;00&nbsp;00&nbsp;00</a>
+  <a href="#" class="nav-logo">Eve Casalta — <span>L'Atelier des Fleurs</span></a>
+  <ul class="nav-links">
+    <li><a href="#galerie">Galerie</a></li>
+    <li><a href="#saison">Saison</a></li>
+    <li><a href="#evenements">Événements</a></li>
+    <li><a href="#boutique">Boutique</a></li>
+    <li><a href="#avis">Avis</a></li>
+  </ul>
+  <a href="tel:0130536761" class="nav-tel">01 30 53 67 61</a>
 </nav>
 
 <main>
+
+  <!-- ── HERO ── -->
   <section class="hero" id="accueil">
     <div class="hero-left">
-      <div class="hero-badge">🌿 Fleurs de Saison & Éco-responsables&nbsp;· Nantes</div>
-      <h1 class="hero-title">Poésie sauvage &<br><span class="accent">créations florales</span></h1>
-      <div class="hero-divider"></div>
-      <p class="hero-subtitle">Bouquets de saison uniques, décors d'événements sur-mesure et abonnements professionnels façonnés au rythme de la nature.</p>
+      <div class="hero-eyebrow">Fleuriste d'art · Le Vésinet</div>
+      <h1 class="hero-title">
+        L'art floral,<br>
+        <em>au fil des saisons</em>
+      </h1>
+      <p class="hero-body">
+        Fleuriste d'art reconnue, Ève Casalta compose depuis des années pour l'hôtellerie de luxe, les particuliers et les grandes maisons de la mode. Un jardin parfumé où fleurissent, au gré des saisons, des fleurs et plantes rares.
+      </p>
       <div class="hero-actions">
-        <a href="#commande" class="btn-primary">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
-          Commander un bouquet
+        <a href="#evenements" class="btn-primary">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2z"/></svg>
+          Réserver un événement
         </a>
-        <a href="#univers" class="btn-secondary">
-          Explorer nos collections
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <a href="#galerie" class="btn-ghost">
+          Voir nos créations
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
     </div>
     <div class="hero-right">
-      <div class="hero-image-wrap">
-        <img
-          class="hero-img"
-          src="fleuriste-premium.jpg"
-          alt="Atelier floral premium – L'Atelier Végétal"
-          loading="eager"
-        >
+      <div class="hero-img-frame">
+        <img src="https://images.unsplash.com/photo-1487530811015-780780600da6?w=900&q=80"
+             alt="Créations florales — Ève Casalta L'Atelier des Fleurs, Le Vésinet"
+             loading="eager">
       </div>
-      <div class="hero-frame"></div>
-    </div>
-  </section>
-
-  <section class="trust-bar">
-    <div class="trust-inner">
-      <div class="trust-rating">
-        <div class="trust-stars">★ ★ ★ ★ ★</div>
-        <div class="trust-score">4.9<span style="font-size:1rem;color:var(--primary)">/5</span></div>
-        <h2 class="trust-label">Basé sur plus de 120 avis certifiés<br>Google Maps · Nantes Centre</h2>
-      </div>
-      <div class="reviews-grid">
-        <div class="review-card">
-          <div class="review-stars">★ ★ ★ ★ ★</div>
-          <p class="review-text">Des compositions d'une finesse rare et qui durent longtemps. La cueillette locale se ressent vraiment dans la fraîcheur des fleurs.</p>
-          <span class="review-author">— Blandine G.</span>
-        </div>
-        <div class="review-card">
-          <div class="review-stars">★ ★ ★ ★ ★</div>
-          <p class="review-text">Service de livraison au top pour l'anniversaire de ma mère. Le bouquet champêtre était magnifique, fidèle aux photos de leur compte Instagram.</p>
-          <span class="review-author">— Thomas D.</span>
-        </div>
+      <div class="hero-frame-border"></div>
+      <div class="hero-tag">
+        <strong>4,8 / 5</strong>
+        <span>★★★★★ · 26 avis Google</span>
       </div>
     </div>
   </section>
 
-  <section class="services" id="univers">
-    <div class="section-header">
-      <div class="section-tag">Notre Savoir-Faire</div>
-      <h2 class="section-title">Des créations végétales,<br><em>pour chaque instant de vie</em></h2>
-    </div>
-    <div class="services-grid">
-      <div class="service-card">
-        <div style="display:flex;align-items:center;justify-content:space-between;">
-          <div class="service-icon">🌸</div>
-          <span class="service-number">01</span>
-        </div>
-        <div>
-          <h3 class="service-name">Bouquets de Saison</h3>
-        </div>
-        <p class="service-desc">Compositions éco-responsables piquées le matin même, s'adaptant chaque semaine aux arrivages et à la floraison locale.</p>
-        <a href="#commande" class="service-link">Choisir ma taille →</a>
+  <!-- ── GALERIE ── -->
+  <section class="gallery-section" id="galerie">
+    <div class="section-tag">Galerie</div>
+    <h2 class="section-title">Des <em>créations</em> uniques</h2>
+    <p class="gallery-section .section-subtitle">Bouquets de saison, compositions de mariage, décors d'hôtel — chaque création est façonnée à la main dans notre atelier.</p>
+
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1490750967868-88df5691cc59?w=800&q=80" alt="Bouquet de mariée — Ève Casalta">
+        <div class="gallery-label">Bouquet de mariée</div>
       </div>
-      <div class="service-card">
-        <div style="display:flex;align-items:center;justify-content:space-between;">
-          <div class="service-icon">💍</div>
-          <span class="service-number">02</span>
-        </div>
-        <div>
-          <h3 class="service-name">Événements & Mariages</h3>
-        </div>
-        <p class="service-desc">Scénographies sur-mesure, arches florales élégantes et boutonnières soignées pour sublimer vos plus beaux moments.</p>
-        <a href="tel:0240000000" class="service-link">Prendre rendez-vous →</a>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1464347744102-11db6282f854?w=600&q=80" alt="Fleurs de saison">
+        <div class="gallery-label">Fleurs de saison</div>
       </div>
-      <div class="service-card">
-        <div style="display:flex;align-items:center;justify-content:space-between;">
-          <div class="service-icon">🌿</div>
-          <span class="service-number">03</span>
-        </div>
-        <div>
-          <h3 class="service-name">Abonnements Pro</h3>
-        </div>
-        <p class="service-desc">Renouvellement hebdomadaire ou mensuel de compositions épurées pour habiller vos boutiques, hôtels ou bureaux.</p>
-        <a href="tel:0240000000" class="service-link">Formules sur-mesure →</a>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?w=600&q=80" alt="Composition de table">
+        <div class="gallery-label">Composition de table</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1457089328109-e5d9bd499191?w=600&q=80" alt="Bouquet champêtre">
+        <div class="gallery-label">Bouquet champêtre</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1591886960571-74d43a9d4166?w=600&q=80" alt="Décor floral événement">
+        <div class="gallery-label">Décor événement</div>
       </div>
     </div>
   </section>
 
-  <section class="contact" id="commande">
-    <div class="contact-inner">
-      <div class="contact-info">
+  <!-- ── SAISON ── -->
+  <section class="saison-section" id="saison">
+    <div class="saison-inner">
+      <div class="saison-image">
+        <div class="saison-img-wrap">
+          <img src="https://images.unsplash.com/photo-1530092285049-1c42085fd395?w=700&q=80" alt="Fleurs de saison — Ève Casalta">
+        </div>
+        <div class="saison-badge">
+          <strong>Été</strong>
+          2025
+        </div>
+      </div>
+      <div class="saison-content">
         <div>
-          <div class="contact-label">Boutique & Ateliers</div>
-          <h2 class="contact-title">L'Atelier</h2>
+          <div class="section-tag">Fleurs de Saison</div>
+          <h2 class="section-title">Ce que la <em>nature offre</em> en ce moment</h2>
+          <p class="section-sub">Nos arrivages changent chaque semaine selon la floraison locale et notre sélection italienne. Des espèces que l'on ne voit pas partout.</p>
         </div>
-        <div class="contact-detail-group">
-          <div class="contact-detail">
-            <span class="detail-label">Adresse</span>
-            <span class="detail-value">12 Rue de Strasbourg<br>44000 Nantes</span>
-            <span class="detail-sub">Quartier Bouffay · Arrêt de tram à proximité</span>
-          </div>
-          <div class="contact-detail">
-            <span class="detail-label">Horaires</span>
-            <span class="detail-value">Du mardi au samedi : 09:30 - 19:30<br>Dimanche matin : 10:00 - 13:00</span>
-          </div>
-          <div class="contact-detail">
-            <span class="detail-label">Zones de livraison</span>
-            <span class="detail-value">Nantes, Rezé, Saint-Herblain & Orvault</span>
-          </div>
-        </div>
-        <a href="tel:0240000000" class="contact-phone-link">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.86 19.79 19.79 0 01.12 1.22 2 2 0 012.1 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
-          Commander par téléphone · 02 40 00 00 00
+        <ul class="season-list">
+          <li>
+            <div class="season-dot"></div>
+            <div>
+              <h4>Pivoines &amp; Renoncules</h4>
+              <p>Généreuses et odorantes, idéales pour les bouquets de mariée et les grandes compositions de table.</p>
+            </div>
+          </li>
+          <li>
+            <div class="season-dot"></div>
+            <div>
+              <h4>Dahlias de jardin</h4>
+              <p>Cueillies chaque matin, ces variétés rares apportent texture et profondeur à nos créations.</p>
+            </div>
+          </li>
+          <li>
+            <div class="season-dot"></div>
+            <div>
+              <h4>Orchidées &amp; Plantes rares</h4>
+              <p>Une sélection soignée de plantes d'intérieur et de vases pour sublimer vos intérieurs.</p>
+            </div>
+          </li>
+          <li>
+            <div class="season-dot"></div>
+            <div>
+              <h4>Roses de production italienne</h4>
+              <p>Pour enrichir l'offre : des roses d'exception, longue durée, aux coloris introuvables ailleurs.</p>
+            </div>
+          </li>
+        </ul>
+        <a href="tel:0130536761" class="btn-primary" style="width:fit-content;">
+          Renseignements · 01 30 53 67 61
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ÉVÉNEMENTS ── -->
+  <section class="events-section" id="evenements">
+    <div class="events-inner">
+      <div class="events-header">
+        <div class="events-tag">Événements &amp; Mariages</div>
+        <h2 class="events-title">Pour vos <em>plus beaux instants</em></h2>
+        <p class="events-body">
+          Depuis de nombreuses années, Ève Casalta compose pour l'hôtellerie de luxe, les particuliers et les grandes maisons de la mode. Chaque mariage, chaque événement professionnel est traité avec la même exigence.
+        </p>
+        <ul class="events-list">
+          <li>Bouquets de mariée sur-mesure &amp; boutonnières</li>
+          <li>Décoration de salle &amp; arches florales</li>
+          <li>Hôtellerie de luxe &amp; grands établissements</li>
+          <li>Tournages de films, défilés de mode</li>
+          <li>Réceptions &amp; séminaires professionnels</li>
+          <li>Forfaits floraux pour hôtels &amp; restaurants</li>
+        </ul>
+        <a href="tel:0130536761" class="btn-light">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.86 19.79 19.79 0 01.12 1.22 2 2 0 012.1 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+          Appeler pour un projet
         </a>
       </div>
 
-      <form class="contact-form" id="recallForm" onsubmit="handleFormSubmit(event)">
+      <form class="events-form" id="eventForm" onsubmit="handleEventSubmit(event)">
         <input type="hidden" name="access_key" value="YOUR-WEB3FORMS-KEY-HERE">
-        <input type="hidden" name="subject" value="Nouvelle commande - L'Atelier Végétal">
+        <input type="hidden" name="subject" value="Demande événement — Ève Casalta L'Atelier des Fleurs">
         <input type="checkbox" name="botcheck" style="display:none;">
 
-        <div class="form-header">
-          <h3 class="form-title">Click & Collect ou Livraison</h3>
-          <p class="form-subtitle">Réservez votre création. Nous validons la disponibilité des fleurs sous 1h.</p>
-        </div>
+        <h3 class="form-title">Demande de devis</h3>
+        <p class="form-sub">Pour un mariage, une réception ou un projet professionnel, décrivez-nous votre projet.</p>
+
         <div class="form-row">
-          <div class="field-wrap">
-            <label class="field-label" for="nom">Votre Nom</label>
-            <input class="field-input" type="text" id="nom" name="nom" placeholder="Julien Mercier" required>
+          <div>
+            <label class="field-label" for="e-nom">Votre nom</label>
+            <input class="field-input" type="text" id="e-nom" name="nom" placeholder="Prénom Nom" required>
           </div>
-          <div class="field-wrap">
-            <label class="field-label" for="tel">Téléphone</label>
-            <input class="field-input" type="tel" id="tel" name="tel" placeholder="06 00 00 00 00" required>
-          </div>
-        </div>
-        
-        <div class="form-row">
-          <div class="field-wrap">
-            <label class="field-label" for="formule">Type de création</label>
-            <select class="field-select" id="formule" name="formule" required>
-              <option value="" disabled selected>Choisir un bouquet…</option>
-              <option value="petit">Bouquet Pastel (Taille S) — 35€</option>
-              <option value="moyen">Bouquet Sauvage (Taille M) — 50€</option>
-              <option value="grand">Création Signature (Taille L) — 75€</option>
-              <option value="deuil">Composition deuil / Hommage</option>
-            </select>
-          </div>
-          <div class="field-wrap">
-            <label class="field-label" for="recup">Mode de retrait</label>
-            <select class="field-select" id="recup" name="recup" required>
-              <option value="" disabled selected>Option…</option>
-              <option value="collect">Click & Collect (Boutique)</option>
-              <option value="livraison">Livraison à domicile</option>
-            </select>
+          <div>
+            <label class="field-label" for="e-tel">Téléphone</label>
+            <input class="field-input" type="tel" id="e-tel" name="tel" placeholder="06 00 00 00 00" required>
           </div>
         </div>
 
-        <div class="form-row">
-          <div class="field-wrap">
-            <label class="field-label" for="date">Date souhaitée</label>
-            <input class="field-input" type="date" id="date" name="date" required>
-          </div>
-          <div class="field-wrap">
-            <label class="field-label" for="creneau">Créneau horaire</label>
-            <select class="field-select" id="creneau" name="creneau" required>
-              <option value="" disabled selected>Choisir un moment…</option>
-              <option value="matin">Matin (10h - 13h)</option>
-              <option value="aprem">Après-midi (14h - 17h)</option>
-              <option value="soir">Fin de journée (17h - 19h)</option>
-            </select>
-          </div>
+        <div>
+          <label class="field-label" for="e-type">Type d'événement</label>
+          <select class="field-select" id="e-type" name="type" required>
+            <option value="" disabled selected>Choisir…</option>
+            <option value="mariage">Mariage</option>
+            <option value="anniversaire">Anniversaire / Réception privée</option>
+            <option value="entreprise">Événement entreprise / Séminaire</option>
+            <option value="hotel">Hôtel / Restaurant (abonnement)</option>
+            <option value="tournage">Tournage / Mode</option>
+            <option value="deuil">Cérémonie funèbre / Hommage</option>
+            <option value="autre">Autre projet</option>
+          </select>
         </div>
 
-        <div class="field-wrap">
-          <label class="field-label" for="message">Mot à joindre ou adresse de livraison</label>
-          <input class="field-input" type="text" id="message" name="message" placeholder="Adresse complète ou texte de la carte personnalisée...">
+        <div>
+          <label class="field-label" for="e-date">Date de l'événement</label>
+          <input class="field-input" type="date" id="e-date" name="date" required>
         </div>
 
-        <button type="submit" class="form-submit">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2L15 22 11 13 2 9l20-7z"/></svg>
-          Valider ma réservation
+        <div>
+          <label class="field-label" for="e-message">Décrivez votre projet</label>
+          <input class="field-input" type="text" id="e-message" name="message" placeholder="Lieu, nombre de convives, couleurs souhaitées, budget…">
+        </div>
+
+        <button type="submit" class="form-submit-events">
+          Envoyer ma demande de devis
         </button>
-        <div class="success-msg" id="successMsg">
-          ✓ &nbsp;Votre demande est prise en compte. Un artisan vous contacte pour confirmer l'heure précise.
+        <div class="success-msg" id="eventSuccess">
+          ✓ &nbsp;Votre demande a bien été transmise. Ève vous contactera dans les meilleurs délais.
         </div>
-        <p class="form-note">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-          Paiement sécurisé sur place ou par lien bancaire après confirmation.
-        </p>
+        <p class="form-note-events">Réponse personnalisée sous 24h · Prise en charge sur-mesure</p>
       </form>
     </div>
   </section>
+
+  <!-- ── AVIS ── -->
+  <section class="reviews-section" id="avis">
+    <div class="reviews-inner">
+      <div class="reviews-header">
+        <div class="section-tag" style="text-align:center;">Avis clients</div>
+        <h2 class="section-title" style="text-align:center;">Ce que disent <em>nos clients</em></h2>
+      </div>
+      <div class="reviews-score">
+        <div class="score-number">4,8<sup>/5</sup></div>
+        <div>
+          <div class="score-stars">★ ★ ★ ★ ★</div>
+          <div class="score-label">26 avis certifiés Google<br>L'Atelier des Fleurs · Le Vésinet</div>
+        </div>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-quote">"</div>
+          <div class="review-stars">★ ★ ★ ★ ★</div>
+          <p class="review-text">Les conseillères sont professionnelles et accueillantes, un large choix avec des fleurs fraîches. Je recommande sans hésitation si vous souhaitez de beaux bouquets ou de belles plantes en pot.</p>
+          <div class="review-author">Kelly A.</div>
+          <div class="review-date">Décembre 2024 · Google</div>
+        </div>
+        <div class="review-card">
+          <div class="review-quote">"</div>
+          <div class="review-stars">★ ★ ★ ★ ★</div>
+          <p class="review-text">J'ai fait appel à Ève pour mon bouquet de mariée. Des fleurs que l'on ne voit pas partout : magnifiques, odorantes, et qui tiennent dans le temps. Un accompagnement parfait du début à la fin.</p>
+          <div class="review-author">Marina</div>
+          <div class="review-date">Octobre 2024 · Google</div>
+        </div>
+        <div class="review-card">
+          <div class="review-quote">"</div>
+          <div class="review-stars">★ ★ ★ ★ ★</div>
+          <p class="review-text">Ravie de l'accueil téléphonique — livraison très rapide et bouquet magnifique. Je recommande vivement cette fleuriste qui aime visiblement son métier et sa clientèle.</p>
+          <div class="review-author">S. M.</div>
+          <div class="review-date">Octobre 2024 · Google</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── INFOS BOUTIQUE ── -->
+  <section class="info-section" id="boutique">
+    <div style="max-width:1100px;margin:0 auto;margin-bottom:3.5rem;">
+      <div class="section-tag">Boutique</div>
+      <h2 class="section-title">Nous <em>retrouver</em></h2>
+    </div>
+    <div class="info-inner">
+      <div class="info-left">
+        <div class="info-detail">
+          <span class="info-detail-label">Adresse</span>
+          <span class="info-detail-value">4 Rue Thiers<br>78110 Le Vésinet</span>
+          <span class="info-detail-sub">Yvelines · Île-de-France</span>
+        </div>
+        <div class="info-detail">
+          <span class="info-detail-label">Horaires d'ouverture</span>
+          <table class="hours-table">
+            <tr class="fermee"><td>Lundi</td><td>Fermé</td></tr>
+            <tr><td>Mardi</td><td>09h30 – 19h30</td></tr>
+            <tr><td>Mercredi</td><td>09h30 – 19h30</td></tr>
+            <tr><td>Jeudi</td><td>09h30 – 19h30</td></tr>
+            <tr><td>Vendredi</td><td>09h30 – 19h30</td></tr>
+            <tr><td>Samedi</td><td>08h30 – 19h30</td></tr>
+            <tr><td>Dimanche</td><td>09h30 – 13h00</td></tr>
+          </table>
+        </div>
+        <div class="info-detail">
+          <span class="info-detail-label">Livraison</span>
+          <span class="info-detail-value">Livraison à domicile disponible</span>
+          <span class="info-detail-sub">Renseignez-vous par téléphone pour les délais et zones</span>
+        </div>
+        <a href="tel:0130536761" class="tel-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.86 19.79 19.79 0 01.12 1.22 2 2 0 012.1 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+          01 30 53 67 61
+        </a>
+      </div>
+      <div class="map-wrap">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2625.7!2d2.5016928!3d48.8426729!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e60d9cd3af97bf%3A0x1dc11622a6ff42ab!2sEve%20Fleurs!5e0!3m2!1sfr!2sfr!4v1700000000000"
+          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          title="Localisation — Ève Casalta L'Atelier des Fleurs, 4 Rue Thiers, Le Vésinet">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <footer>
-  <span class="footer-left">© 2026 L'Atelier Végétal · 12 Rue de Strasbourg, 44000 Nantes</span>
-  <span class="footer-center">L'Atelier Végétal</span>
-  <span class="footer-right">
-    <a href="tel:0240000000">02 40 00 00 00</a>
-    &ensp;·&ensp;Mentions légales
-  </span>
+  <span class="footer-brand">Ève Casalta — <em>L'Atelier des Fleurs</em></span>
+  <span class="footer-copy">© 2026 · 4 Rue Thiers, 78110 Le Vésinet</span>
+  <div class="footer-links">
+    <a href="tel:0130536761">01 30 53 67 61</a>
+    <a href="#">Mentions légales</a>
+  </div>
 </footer>
 
 <script>
 (function() {
   var nav = document.getElementById('mainNav');
   window.addEventListener('scroll', function() {
-    if (window.scrollY > 50) {
-      nav.classList.add('scrolled');
-    } else {
-      nav.classList.remove('scrolled');
-    }
+    nav.classList.toggle('scrolled', window.scrollY > 50);
   }, { passive: true });
+
+  var today = new Date().getDay();
+  var rows = document.querySelectorAll('.hours-table tr');
+  var map = {0:6, 1:0, 2:1, 3:2, 4:3, 5:4, 6:5};
+  if (map[today] !== undefined) {
+    rows[map[today]].classList.add('today');
+  }
 })();
 
-function handleFormSubmit(event) {
+function handleEventSubmit(event) {
   event.preventDefault();
-  
-  var form = document.getElementById('recallForm');
-  var nom = document.getElementById('nom').value.trim();
-  var tel = document.getElementById('tel').value.trim();
-  var formule = document.getElementById('formule').value;
-  var recup = document.getElementById('recup').value;
-  var date = document.getElementById('date').value;
-  var creneau = document.getElementById('creneau').value;
-  
-  if (!nom || !tel || !formule || !recup || !date || !creneau) {
-    alert('Merci de renseigner tous les critères obligatoires.');
-    return;
-  }
-  
-  var btn = document.querySelector('.form-submit');
-  var originalBtnText = btn.innerHTML;
-  btn.style.opacity = '0.5';
-  btn.disabled = true;
-  btn.innerText = 'Transmission...';
+  var form = document.getElementById('eventForm');
+  var btn = form.querySelector('.form-submit-events');
+  btn.style.opacity = '0.5'; btn.disabled = true; btn.textContent = 'Envoi…';
 
-  var formData = new FormData(form);
-
-  fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData })
-  .then(function(response) {
-    if (response.ok) {
-      document.getElementById('successMsg').style.display = 'block';
-      btn.style.display = 'none';
-      form.reset();
+  fetch('https://api.web3forms.com/submit', {
+    method: 'POST', body: new FormData(form)
+  })
+  .then(function(r) {
+    if (r.ok) {
+      document.getElementById('eventSuccess').style.display = 'block';
+      btn.style.display = 'none'; form.reset();
     } else {
-      alert("Une erreur technique s'est produite. N'hésitez pas à nous appeler directement.");
-      btn.style.opacity = '1';
-      btn.disabled = false;
-      btn.innerHTML = originalBtnText;
+      alert("Une erreur s'est produite. Appelez-nous directement au 01 30 53 67 61.");
+      btn.style.opacity = '1'; btn.disabled = false; btn.textContent = 'Envoyer ma demande de devis';
     }
   })
   .catch(function() {
-    alert("Erreur réseau. Veuillez vérifier votre connexion ou passer commande par téléphone.");
-    btn.style.opacity = '1';
-    btn.disabled = false;
-    btn.innerHTML = originalBtnText;
+    alert("Erreur réseau. Appelez-nous au 01 30 53 67 61.");
+    btn.style.opacity = '1'; btn.disabled = false; btn.textContent = 'Envoyer ma demande de devis';
   });
 }
 
-document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-  anchor.addEventListener('click', function(e) {
-    var target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+  a.addEventListener('click', function(e) {
+    var t = document.querySelector(this.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
   });
 });
 </script>
-
 </body>
 </html>
