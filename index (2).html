@@ -3,24 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Instant de Sérénité — Institut de Beauté Premium · Nogent-sur-Marne</title>
-<meta name="description" content="Institut de beauté premium à Nogent-sur-Marne. Soins du visage sur-mesure, épilations méticuleuses et rituels bien-être. Prenez rendez-vous : 01 48 85 96 07">
+<title>L'Atelier Végétal — Artisan Fleuriste & Créations Éco-responsables · Nantes</title>
+<meta name="description" content="Artisan fleuriste à Nantes. Bouquets de saison, compositions pour événements et abonnements floraux. Livraison rapide et Click & Collect.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg-deep: #0b0a0a;
-  --bg-card: #111010;
-  --bg-elevated: #161414;
-  --gold: #c9a96e;
-  --gold-light: #e2c48a;
-  --gold-dim: #8b7355;
-  --cream: #f5f0e8;
-  --cream-dim: #bfb8ac;
-  --text-body: #9a9490;
-  --border: rgba(201,169,110,0.15);
-  --border-subtle: rgba(255,255,255,0.06);
+  --bg-deep: #f4f6f4;
+  --bg-card: #ffffff;
+  --bg-elevated: #eaebea;
+  --primary: #2d4a3e;
+  --primary-light: #4a6b5d;
+  --accent: #d28d79;
+  --cream: #1e2b24;
+  --cream-dim: #38463f;
+  --text-body: #55635a;
+  --border: rgba(45,74,62,0.15);
+  --border-subtle: rgba(0,0,0,0.04);
   --font-serif: 'Playfair Display', Georgia, serif;
   --font-sans: 'Montserrat', sans-serif;
   --radius: 4px;
@@ -49,8 +49,8 @@ body {
 }
 
 ::selection {
-  background: var(--gold);
-  color: var(--bg-deep);
+  background: var(--primary);
+  color: #ffffff;
 }
 
 a {
@@ -68,7 +68,7 @@ nav {
   align-items: center;
   justify-content: space-between;
   padding: 1.25rem 5vw;
-  background: rgba(11,10,10,0.92);
+  background: rgba(244, 246, 244, 0.92);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border-subtle);
@@ -77,7 +77,8 @@ nav {
 
 nav.scrolled {
   padding: 0.9rem 5vw;
-  background: rgba(11,10,10,0.98);
+  background: rgba(244, 246, 244, 0.98);
+  box-shadow: 0 4px 20px rgba(45,74,62,0.04);
 }
 
 .nav-logo {
@@ -90,7 +91,7 @@ nav.scrolled {
 }
 
 .nav-logo span {
-  color: var(--gold);
+  color: var(--primary);
 }
 
 .nav-cta {
@@ -99,8 +100,8 @@ nav.scrolled {
   gap: 0.5rem;
   padding: 0.65rem 1.4rem;
   background: transparent;
-  border: 1px solid var(--gold-dim);
-  color: var(--gold-light);
+  border: 1px solid var(--primary);
+  color: var(--primary);
   font-family: var(--font-sans);
   font-size: 0.75rem;
   font-weight: 500;
@@ -112,9 +113,9 @@ nav.scrolled {
 }
 
 .nav-cta:hover {
-  background: var(--gold);
-  border-color: var(--gold);
-  color: var(--bg-deep);
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #ffffff;
 }
 
 .hero {
@@ -132,7 +133,7 @@ nav.scrolled {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 20% 50%, rgba(201,169,110,0.04) 0%, transparent 60%);
+  background: radial-gradient(ellipse at 20% 50%, rgba(45,74,62,0.06) 0%, transparent 60%);
   pointer-events: none;
 }
 
@@ -156,11 +157,11 @@ nav.scrolled {
   gap: 0.5rem;
   padding: 0.45rem 1rem;
   border: 1px solid var(--border);
-  background: rgba(201,169,110,0.05);
+  background: rgba(45,74,62,0.03);
   font-size: 0.72rem;
   font-weight: 500;
   letter-spacing: 0.08em;
-  color: var(--gold-dim);
+  color: var(--primary);
   width: fit-content;
 }
 
@@ -174,7 +175,7 @@ nav.scrolled {
 }
 
 .hero-title .accent {
-  color: var(--gold);
+  color: var(--accent);
   font-style: italic;
 }
 
@@ -189,7 +190,7 @@ nav.scrolled {
 .hero-divider {
   width: 48px;
   height: 1px;
-  background: linear-gradient(90deg, var(--gold), transparent);
+  background: linear-gradient(90deg, var(--primary), transparent);
 }
 
 .hero-actions {
@@ -204,8 +205,8 @@ nav.scrolled {
   align-items: center;
   gap: 0.6rem;
   padding: 0.9rem 2rem;
-  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
-  color: var(--bg-deep);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  color: #ffffff;
   font-family: var(--font-sans);
   font-size: 0.8rem;
   font-weight: 600;
@@ -218,7 +219,7 @@ nav.scrolled {
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 40px rgba(201,169,110,0.3);
+  box-shadow: 0 12px 30px rgba(45,74,62,0.2);
 }
 
 .btn-secondary {
@@ -239,8 +240,8 @@ nav.scrolled {
 }
 
 .btn-secondary:hover {
-  border-color: var(--gold-dim);
-  color: var(--gold-light);
+  border-color: var(--primary);
+  color: var(--primary);
 }
 
 .hero-right {
@@ -262,13 +263,14 @@ nav.scrolled {
   width: 100%;
   height: 100%;
   overflow: hidden;
+  box-shadow: 0 20px 40px rgba(45,74,62,0.06);
 }
 
 .hero-image-wrap::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(11,10,10,0.3) 0%, transparent 50%, rgba(11,10,10,0.2) 100%);
+  background: linear-gradient(135deg, rgba(244,246,244,0.15) 0%, transparent 60%);
   z-index: 1;
   pointer-events: none;
 }
@@ -295,14 +297,14 @@ nav.scrolled {
 
 @keyframes floatZoom {
   0%, 100% { transform: scale(1.05) translateY(0px); }
-  33% { transform: scale(1.08) translateY(-8px); }
-  66% { transform: scale(1.04) translateY(6px); }
+  33% { transform: scale(1.08) translateY(-6px); }
+  66% { transform: scale(1.03) translateY(4px); }
 }
 
 .hero-frame {
   position: absolute;
   inset: 16px;
-  border: 1px solid rgba(201,169,110,0.2);
+  border: 1px solid rgba(45,74,62,0.2);
   z-index: 3;
   pointer-events: none;
 }
@@ -329,7 +331,7 @@ nav.scrolled {
 }
 
 .trust-stars {
-  color: var(--gold);
+  color: var(--accent);
   font-size: 1.1rem;
   letter-spacing: 0.15em;
 }
@@ -366,6 +368,8 @@ nav.scrolled {
 
 .review-card:hover {
   border-color: var(--border);
+  background: var(--bg-card);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.02);
 }
 
 .review-card::before {
@@ -375,7 +379,7 @@ nav.scrolled {
   left: 1.8rem;
   font-family: var(--font-serif);
   font-size: 4rem;
-  color: var(--gold);
+  color: var(--accent);
   opacity: 0.3;
   line-height: 1;
 }
@@ -393,11 +397,11 @@ nav.scrolled {
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--gold-dim);
+  color: var(--primary);
 }
 
 .review-stars {
-  color: var(--gold);
+  color: var(--accent);
   font-size: 0.7rem;
   letter-spacing: 0.1em;
   margin-bottom: 0.5rem;
@@ -419,7 +423,7 @@ nav.scrolled {
   font-size: 0.7rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--primary);
   margin-bottom: 1rem;
 }
 
@@ -433,14 +437,13 @@ nav.scrolled {
 
 .section-title em {
   font-style: italic;
-  color: var(--gold);
+  color: var(--accent);
 }
 
 .services-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5px;
-  background: var(--border-subtle);
+  gap: 20px;
 }
 
 .service-card {
@@ -452,6 +455,8 @@ nav.scrolled {
   transition: var(--transition);
   position: relative;
   overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.01);
 }
 
 .service-card::after {
@@ -461,7 +466,7 @@ nav.scrolled {
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  background: linear-gradient(90deg, transparent, var(--primary), transparent);
   transform: scaleX(0);
   transition: var(--transition);
 }
@@ -471,7 +476,9 @@ nav.scrolled {
 }
 
 .service-card:hover {
-  background: var(--bg-elevated);
+  background: var(--bg-deep);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(45,74,62,0.08);
 }
 
 .service-icon {
@@ -482,12 +489,14 @@ nav.scrolled {
   align-items: center;
   justify-content: center;
   font-size: 1.1rem;
+  color: var(--primary);
+  background: rgba(45,74,62,0.03);
 }
 
 .service-number {
   font-family: var(--font-serif);
   font-size: 0.75rem;
-  color: var(--gold-dim);
+  color: var(--primary);
   letter-spacing: 0.1em;
 }
 
@@ -512,13 +521,14 @@ nav.scrolled {
   font-size: 0.72rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--gold-dim);
+  color: var(--primary);
   margin-top: auto;
   transition: var(--transition);
+  font-weight: 500;
 }
 
 .service-link:hover {
-  color: var(--gold-light);
+  color: var(--accent);
   gap: 0.8rem;
 }
 
@@ -547,7 +557,7 @@ nav.scrolled {
   font-size: 0.7rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--primary);
   margin-bottom: 0.3rem;
 }
 
@@ -573,9 +583,10 @@ nav.scrolled {
 
 .detail-label {
   font-size: 0.68rem;
-  letter-spacing: 0.14em;
+  letter-spacing: 14em;
   text-transform: uppercase;
-  color: var(--gold-dim);
+  color: var(--primary);
+  font-weight: 500;
 }
 
 .detail-value {
@@ -596,24 +607,28 @@ nav.scrolled {
   gap: 0.7rem;
   margin-top: 1rem;
   padding: 1rem 1.8rem;
-  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
-  color: var(--bg-deep);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  color: #ffffff;
   font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   transition: var(--transition);
+  width: fit-content;
 }
 
 .contact-phone-link:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 40px rgba(201,169,110,0.3);
+  box-shadow: 0 12px 30px rgba(45,74,62,0.25);
 }
 
 .contact-form {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  background: var(--bg-deep);
+  padding: 2.5rem;
+  border: 1px solid var(--border-subtle);
 }
 
 .form-header {
@@ -649,38 +664,40 @@ nav.scrolled {
   font-size: 0.68rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--gold-dim);
+  color: var(--primary);
+  font-weight: 500;
 }
 
 .field-input,
 .field-select {
   padding: 0.85rem 1.1rem;
-  background: var(--bg-deep);
+  background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   color: var(--cream-dim);
   font-family: var(--font-sans);
   font-size: 0.85rem;
-  font-weight: 300;
+  font-weight: 400;
   outline: none;
   transition: var(--transition);
   appearance: none;
   -webkit-appearance: none;
   width: 100%;
+  border-radius: 0;
 }
 
 .field-input:focus,
 .field-select:focus {
-  border-color: var(--gold-dim);
-  background: var(--bg-elevated);
+  border-color: var(--primary);
+  background: var(--bg-card);
+  box-shadow: 0 0 10px rgba(45,74,62,0.05);
 }
 
 .field-input::placeholder {
-  color: var(--text-body);
-  opacity: 0.6;
+  color: #a4b3ab;
 }
 
 .field-select {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238b7355' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%232d4a3e' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 1rem center;
   padding-right: 2.5rem;
@@ -688,18 +705,18 @@ nav.scrolled {
 }
 
 .field-select option {
-  background: var(--bg-deep);
+  background: var(--bg-card);
   color: var(--cream-dim);
 }
 
 .form-submit {
   padding: 1rem 2rem;
   background: transparent;
-  border: 1px solid var(--gold-dim);
-  color: var(--gold-light);
+  border: 1px solid var(--primary);
+  color: var(--primary);
   font-family: var(--font-sans);
   font-size: 0.78rem;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   cursor: pointer;
@@ -708,12 +725,13 @@ nav.scrolled {
   align-items: center;
   justify-content: center;
   gap: 0.6rem;
+  width: 100%;
 }
 
 .form-submit:hover {
-  background: var(--gold);
-  border-color: var(--gold);
-  color: var(--bg-deep);
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #ffffff;
 }
 
 .form-note {
@@ -727,16 +745,18 @@ nav.scrolled {
 .success-msg {
   display: none;
   padding: 1.2rem 1.5rem;
-  background: rgba(201,169,110,0.08);
-  border: 1px solid var(--gold-dim);
-  color: var(--gold-light);
+  background: rgba(45,74,62,0.08);
+  border: 1px solid var(--primary);
+  color: var(--primary);
   font-size: 0.85rem;
   text-align: center;
+  font-weight: 500;
 }
 
 footer {
   padding: 2.5rem 5vw;
   border-top: 1px solid var(--border-subtle);
+  background: var(--bg-elevated);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -747,29 +767,30 @@ footer {
 .footer-left {
   font-size: 0.72rem;
   color: var(--text-body);
-  opacity: 0.7;
+  opacity: 0.8;
   letter-spacing: 0.04em;
 }
 
 .footer-center {
   font-family: var(--font-serif);
   font-size: 0.85rem;
-  color: var(--gold-dim);
+  color: var(--primary);
+  font-weight: 500;
 }
 
 .footer-right {
   font-size: 0.72rem;
   color: var(--text-body);
-  opacity: 0.7;
+  opacity: 0.8;
 }
 
 .footer-right a {
-  color: var(--gold-dim);
+  color: var(--primary);
   transition: var(--transition);
 }
 
 .footer-right a:hover {
-  color: var(--gold-light);
+  color: var(--accent);
 }
 
 @media (max-width: 900px) {
@@ -791,11 +812,16 @@ footer {
 
   .services-grid {
     grid-template-columns: 1fr;
+    gap: 15px;
   }
 
   .contact-inner {
     grid-template-columns: 1fr;
     gap: 3rem;
+  }
+  
+  .contact-form {
+    padding: 1.5rem;
   }
 }
 
@@ -821,7 +847,7 @@ footer {
     flex-direction: column;
   }
 
-  .btn-primary, .btn-secondary {
+  .btn-primary, .btn-secondary, .contact-phone-link {
     width: 100%;
     justify-content: center;
   }
@@ -849,177 +875,216 @@ footer {
 <body>
 
 <nav id="mainNav">
-  <a href="#" class="nav-logo">Instant <span>de Sérénité</span></a>
-  <a href="tel:0148859607" class="nav-cta">Prendre RDV&nbsp;: 01&nbsp;48&nbsp;85&nbsp;96&nbsp;07</a>
+  <a href="#" class="nav-logo">L'Atelier <span>Végétal</span></a>
+  <a href="tel:0240000000" class="nav-cta">Commander&nbsp;: 02&nbsp;40&nbsp;00&nbsp;00&nbsp;00</a>
 </nav>
 
-<section class="hero" id="accueil">
-  <div class="hero-left">
-    <div class="hero-badge">✨ Votre Institut de Beauté Privé&nbsp;· Nogent-sur-Marne</div>
-    <h1 class="hero-title">Un instant absolu<br><span class="accent">de sérénité</span></h1>
-    <div class="hero-divider"></div>
-    <p class="hero-subtitle">Soins du visage sur-mesure, épilations méticuleuses et rituels de bien-être dans un cadre chaleureux et confidentiel.</p>
-    <div class="hero-actions">
-      <a href="tel:0148859607" class="btn-primary">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.86 19.79 19.79 0 01.12 1.22 2 2 0 012.1 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
-        Appeler l'Institut
-      </a>
-      <a href="#prestations" class="btn-secondary">
-        Découvrir la carte des soins
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
+<main>
+  <section class="hero" id="accueil">
+    <div class="hero-left">
+      <div class="hero-badge">🌿 Fleurs de Saison & Éco-responsables&nbsp;· Nantes</div>
+      <h1 class="hero-title">Poésie sauvage &<br><span class="accent">créations florales</span></h1>
+      <div class="hero-divider"></div>
+      <p class="hero-subtitle">Bouquets de saison uniques, décors d'événements sur-mesure et abonnements professionnels façonnés au rythme de la nature.</p>
+      <div class="hero-actions">
+        <a href="#commande" class="btn-primary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
+          Commander un bouquet
+        </a>
+        <a href="#univers" class="btn-secondary">
+          Explorer nos collections
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
     </div>
-  </div>
-  <div class="hero-right">
-    <div class="hero-image-wrap">
-      <img
-        class="hero-img"
-        src="https://d8j0ntlcm91z4.cloudfront.net/user_3Erij4BdmViVM2FP8PqECfY4uJK/hf_20260608_183736_08030957-9128-4630-b1ee-20c18065a3f8.png"
-        alt="Soin du visage haut de gamme – Instant de Sérénité"
-        loading="eager"
-      >
+    <div class="hero-right">
+      <div class="hero-image-wrap">
+        <img
+          class="hero-img"
+          src="fleuriste-premium.jpg"
+          alt="Atelier floral premium – L'Atelier Végétal"
+          loading="eager"
+        >
+      </div>
+      <div class="hero-frame"></div>
     </div>
-    <div class="hero-frame"></div>
-  </div>
-</section>
+  </section>
 
-<section class="trust-bar">
-  <div class="trust-inner">
-    <div class="trust-rating">
-      <div class="trust-stars">★ ★ ★ ★ ★</div>
-      <div class="trust-score">5.0<span style="font-size:1rem;color:var(--gold-dim)">/5</span></div>
-      <div class="trust-label">Basé sur 30 avis certifiés<br>Google Maps · Nogent-sur-Marne</div>
-    </div>
-    <div class="reviews-grid">
-      <div class="review-card">
-        <div class="review-stars">★ ★ ★ ★ ★</div>
-        <p class="review-text">Soin du visage fait avec beaucoup de délicatesse… travail de qualité, l'institut est très chaleureux.</p>
-        <span class="review-author">— Alexandra M.</span>
+  <section class="trust-bar">
+    <div class="trust-inner">
+      <div class="trust-rating">
+        <div class="trust-stars">★ ★ ★ ★ ★</div>
+        <div class="trust-score">4.9<span style="font-size:1rem;color:var(--primary)">/5</span></div>
+        <h2 class="trust-label">Basé sur plus de 120 avis certifiés<br>Google Maps · Nantes Centre</h2>
       </div>
-      <div class="review-card">
-        <div class="review-stars">★ ★ ★ ★ ★</div>
-        <p class="review-text">Salon très propre et agréable. Une esthéticienne très douce et méticuleuse. Je recommande à 100&nbsp;%.</p>
-        <span class="review-author">— Océane P.</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="services" id="prestations">
-  <div class="section-header">
-    <div class="section-tag">Nos Prestations</div>
-    <h2 class="section-title">Des soins d'exception,<br><em>une attention absolue</em></h2>
-  </div>
-  <div class="services-grid">
-    <div class="service-card">
-      <div style="display:flex;align-items:center;justify-content:space-between;">
-        <div class="service-icon">✦</div>
-        <span class="service-number">01</span>
-      </div>
-      <div>
-        <h3 class="service-name">Soins du Visage</h3>
-      </div>
-      <p class="service-desc">Rituels sur-mesure et diagnostics de peau profonds exécutés avec délicatesse, pour révéler l'éclat naturel de votre peau.</p>
-      <a href="tel:0148859607" class="service-link">Réserver ce soin →</a>
-    </div>
-    <div class="service-card">
-      <div style="display:flex;align-items:center;justify-content:space-between;">
-        <div class="service-icon">◈</div>
-        <span class="service-number">02</span>
-      </div>
-      <div>
-        <h3 class="service-name">Épilations Méticuleuses</h3>
-      </div>
-      <p class="service-desc">Une technique douce et précise pour un résultat impeccable et durable, dans un cadre confidentiel et bienveillant.</p>
-      <a href="tel:0148859607" class="service-link">Réserver ce soin →</a>
-    </div>
-    <div class="service-card">
-      <div style="display:flex;align-items:center;justify-content:space-between;">
-        <div class="service-icon">❧</div>
-        <span class="service-number">03</span>
-      </div>
-      <div>
-        <h3 class="service-name">Massages & Détente</h3>
-      </div>
-      <p class="service-desc">Parenthèse de bien-être absolu pour libérer les tensions du corps et de l'esprit, et vous ressourcer en profondeur.</p>
-      <a href="tel:0148859607" class="service-link">Réserver ce soin →</a>
-    </div>
-  </div>
-</section>
-
-<section class="contact" id="contact">
-  <div class="contact-inner">
-    <div class="contact-info">
-      <div>
-        <div class="contact-label">Nous trouver</div>
-        <h2 class="contact-title">L'Institut</h2>
-      </div>
-      <div class="contact-detail-group">
-        <div class="contact-detail">
-          <span class="detail-label">Adresse</span>
-          <span class="detail-value">3 Rue André Pontier<br>94130 Nogent-sur-Marne</span>
-          <span class="detail-sub">À deux pas du centre-ville · Stationnement facile</span>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-stars">★ ★ ★ ★ ★</div>
+          <p class="review-text">Des compositions d'une finesse rare et qui durent longtemps. La cueillette locale se ressent vraiment dans la fraîcheur des fleurs.</p>
+          <span class="review-author">— Blandine G.</span>
         </div>
-        <div class="contact-detail">
-          <span class="detail-label">Horaires</span>
-          <span class="detail-value">Ouvert du mardi au samedi<br>dès 10:00</span>
-        </div>
-        <div class="contact-detail">
-          <span class="detail-label">Téléphone</span>
-          <span class="detail-value">01 48 85 96 07</span>
+        <div class="review-card">
+          <div class="review-stars">★ ★ ★ ★ ★</div>
+          <p class="review-text">Service de livraison au top pour l'anniversaire de ma mère. Le bouquet champêtre était magnifique, fidèle aux photos de leur compte Instagram.</p>
+          <span class="review-author">— Thomas D.</span>
         </div>
       </div>
-      <a href="tel:0148859607" class="contact-phone-link">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.86 19.79 19.79 0 01.12 1.22 2 2 0 012.1 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
-        Appeler maintenant · 01 48 85 96 07
-      </a>
     </div>
+  </section>
 
-    <div class="contact-form">
-      <div class="form-header">
-        <h3 class="form-title">Demande de rappel sous 2h</h3>
-        <p class="form-subtitle">Laissez vos coordonnées, nous vous recontactons rapidement.</p>
+  <section class="services" id="univers">
+    <div class="section-header">
+      <div class="section-tag">Notre Savoir-Faire</div>
+      <h2 class="section-title">Des créations végétales,<br><em>pour chaque instant de vie</em></h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div style="display:flex;align-items:center;justify-content:space-between;">
+          <div class="service-icon">🌸</div>
+          <span class="service-number">01</span>
+        </div>
+        <div>
+          <h3 class="service-name">Bouquets de Saison</h3>
+        </div>
+        <p class="service-desc">Compositions éco-responsables piquées le matin même, s'adaptant chaque semaine aux arrivages et à la floraison locale.</p>
+        <a href="#commande" class="service-link">Choisir ma taille →</a>
       </div>
-      <div class="form-row">
+      <div class="service-card">
+        <div style="display:flex;align-items:center;justify-content:space-between;">
+          <div class="service-icon">💍</div>
+          <span class="service-number">02</span>
+        </div>
+        <div>
+          <h3 class="service-name">Événements & Mariages</h3>
+        </div>
+        <p class="service-desc">Scénographies sur-mesure, arches florales élégantes et boutonnières soignées pour sublimer vos plus beaux moments.</p>
+        <a href="tel:0240000000" class="service-link">Prendre rendez-vous →</a>
+      </div>
+      <div class="service-card">
+        <div style="display:flex;align-items:center;justify-content:space-between;">
+          <div class="service-icon">🌿</div>
+          <span class="service-number">03</span>
+        </div>
+        <div>
+          <h3 class="service-name">Abonnements Pro</h3>
+        </div>
+        <p class="service-desc">Renouvellement hebdomadaire ou mensuel de compositions épurées pour habiller vos boutiques, hôtels ou bureaux.</p>
+        <a href="tel:0240000000" class="service-link">Formules sur-mesure →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="commande">
+    <div class="contact-inner">
+      <div class="contact-info">
+        <div>
+          <div class="contact-label">Boutique & Ateliers</div>
+          <h2 class="contact-title">L'Atelier</h2>
+        </div>
+        <div class="contact-detail-group">
+          <div class="contact-detail">
+            <span class="detail-label">Adresse</span>
+            <span class="detail-value">12 Rue de Strasbourg<br>44000 Nantes</span>
+            <span class="detail-sub">Quartier Bouffay · Arrêt de tram à proximité</span>
+          </div>
+          <div class="contact-detail">
+            <span class="detail-label">Horaires</span>
+            <span class="detail-value">Du mardi au samedi : 09:30 - 19:30<br>Dimanche matin : 10:00 - 13:00</span>
+          </div>
+          <div class="contact-detail">
+            <span class="detail-label">Zones de livraison</span>
+            <span class="detail-value">Nantes, Rezé, Saint-Herblain & Orvault</span>
+          </div>
+        </div>
+        <a href="tel:0240000000" class="contact-phone-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.86 19.79 19.79 0 01.12 1.22 2 2 0 012.1 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+          Commander par téléphone · 02 40 00 00 00
+        </a>
+      </div>
+
+      <form class="contact-form" id="recallForm" onsubmit="handleFormSubmit(event)">
+        <input type="hidden" name="access_key" value="YOUR-WEB3FORMS-KEY-HERE">
+        <input type="hidden" name="subject" value="Nouvelle commande - L'Atelier Végétal">
+        <input type="checkbox" name="botcheck" style="display:none;">
+
+        <div class="form-header">
+          <h3 class="form-title">Click & Collect ou Livraison</h3>
+          <p class="form-subtitle">Réservez votre création. Nous validons la disponibilité des fleurs sous 1h.</p>
+        </div>
+        <div class="form-row">
+          <div class="field-wrap">
+            <label class="field-label" for="nom">Votre Nom</label>
+            <input class="field-input" type="text" id="nom" name="nom" placeholder="Julien Mercier" required>
+          </div>
+          <div class="field-wrap">
+            <label class="field-label" for="tel">Téléphone</label>
+            <input class="field-input" type="tel" id="tel" name="tel" placeholder="06 00 00 00 00" required>
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="field-wrap">
+            <label class="field-label" for="formule">Type de création</label>
+            <select class="field-select" id="formule" name="formule" required>
+              <option value="" disabled selected>Choisir un bouquet…</option>
+              <option value="petit">Bouquet Pastel (Taille S) — 35€</option>
+              <option value="moyen">Bouquet Sauvage (Taille M) — 50€</option>
+              <option value="grand">Création Signature (Taille L) — 75€</option>
+              <option value="deuil">Composition deuil / Hommage</option>
+            </select>
+          </div>
+          <div class="field-wrap">
+            <label class="field-label" for="recup">Mode de retrait</label>
+            <select class="field-select" id="recup" name="recup" required>
+              <option value="" disabled selected>Option…</option>
+              <option value="collect">Click & Collect (Boutique)</option>
+              <option value="livraison">Livraison à domicile</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field-wrap">
+            <label class="field-label" for="date">Date souhaitée</label>
+            <input class="field-input" type="date" id="date" name="date" required>
+          </div>
+          <div class="field-wrap">
+            <label class="field-label" for="creneau">Créneau horaire</label>
+            <select class="field-select" id="creneau" name="creneau" required>
+              <option value="" disabled selected>Choisir un moment…</option>
+              <option value="matin">Matin (10h - 13h)</option>
+              <option value="aprem">Après-midi (14h - 17h)</option>
+              <option value="soir">Fin de journée (17h - 19h)</option>
+            </select>
+          </div>
+        </div>
+
         <div class="field-wrap">
-          <label class="field-label" for="nom">Prénom & Nom</label>
-          <input class="field-input" type="text" id="nom" name="nom" placeholder="Marie Dupont" required>
+          <label class="field-label" for="message">Mot à joindre ou adresse de livraison</label>
+          <input class="field-input" type="text" id="message" name="message" placeholder="Adresse complète ou texte de la carte personnalisée...">
         </div>
-        <div class="field-wrap">
-          <label class="field-label" for="tel">Téléphone</label>
-          <input class="field-input" type="tel" id="tel" name="tel" placeholder="06 00 00 00 00" required>
+
+        <button type="submit" class="form-submit">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2L15 22 11 13 2 9l20-7z"/></svg>
+          Valider ma réservation
+        </button>
+        <div class="success-msg" id="successMsg">
+          ✓ &nbsp;Votre demande est prise en compte. Un artisan vous contacte pour confirmer l'heure précise.
         </div>
-      </div>
-      <div class="field-wrap">
-        <label class="field-label" for="prestation">Prestation souhaitée</label>
-        <select class="field-select" id="prestation" name="prestation" required>
-          <option value="" disabled selected>Choisir une prestation…</option>
-          <option value="visage">Soin du visage</option>
-          <option value="epilation">Épilation</option>
-          <option value="massage">Massage & Détente</option>
-          <option value="autre">Autre / À définir</option>
-        </select>
-      </div>
-      <button type="button" class="form-submit" onclick="handleFormSubmit()">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2L15 22 11 13 2 9l20-7z"/></svg>
-        Envoyer ma demande
-      </button>
-      <div class="success-msg" id="successMsg">
-        ✓ &nbsp;Votre demande a bien été envoyée. Nous vous rappelons sous 2h.
-      </div>
-      <p class="form-note">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-        Vos données restent strictement confidentielles.
-      </p>
+        <p class="form-note">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          Paiement sécurisé sur place ou par lien bancaire après confirmation.
+        </p>
+      </form>
     </div>
-  </div>
-</section>
+  </section>
+</main>
 
 <footer>
-  <span class="footer-left">© 2026 Instant de Sérénité · 3 Rue André Pontier, 94130 Nogent-sur-Marne</span>
-  <span class="footer-center">Instant de Sérénité</span>
+  <span class="footer-left">© 2026 L'Atelier Végétal · 12 Rue de Strasbourg, 44000 Nantes</span>
+  <span class="footer-center">L'Atelier Végétal</span>
   <span class="footer-right">
-    <a href="tel:0148859607">01 48 85 96 07</a>
+    <a href="tel:0240000000">02 40 00 00 00</a>
     &ensp;·&ensp;Mentions légales
   </span>
 </footer>
@@ -1036,21 +1101,49 @@ footer {
   }, { passive: true });
 })();
 
-function handleFormSubmit() {
+function handleFormSubmit(event) {
+  event.preventDefault();
+  
+  var form = document.getElementById('recallForm');
   var nom = document.getElementById('nom').value.trim();
   var tel = document.getElementById('tel').value.trim();
-  var prestation = document.getElementById('prestation').value;
-  if (!nom || !tel || !prestation) {
-    alert('Merci de remplir tous les champs.');
+  var formule = document.getElementById('formule').value;
+  var recup = document.getElementById('recup').value;
+  var date = document.getElementById('date').value;
+  var creneau = document.getElementById('creneau').value;
+  
+  if (!nom || !tel || !formule || !recup || !date || !creneau) {
+    alert('Merci de renseigner tous les critères obligatoires.');
     return;
   }
+  
   var btn = document.querySelector('.form-submit');
+  var originalBtnText = btn.innerHTML;
   btn.style.opacity = '0.5';
   btn.disabled = true;
-  setTimeout(function() {
-    document.getElementById('successMsg').style.display = 'block';
-    btn.style.display = 'none';
-  }, 600);
+  btn.innerText = 'Transmission...';
+
+  var formData = new FormData(form);
+
+  fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData })
+  .then(function(response) {
+    if (response.ok) {
+      document.getElementById('successMsg').style.display = 'block';
+      btn.style.display = 'none';
+      form.reset();
+    } else {
+      alert("Une erreur technique s'est produite. N'hésitez pas à nous appeler directement.");
+      btn.style.opacity = '1';
+      btn.disabled = false;
+      btn.innerHTML = originalBtnText;
+    }
+  })
+  .catch(function() {
+    alert("Erreur réseau. Veuillez vérifier votre connexion ou passer commande par téléphone.");
+    btn.style.opacity = '1';
+    btn.disabled = false;
+    btn.innerHTML = originalBtnText;
+  });
 }
 
 document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
