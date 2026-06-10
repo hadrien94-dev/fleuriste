@@ -364,6 +364,7 @@ nav.scrolled { padding: 0.85rem 5vw; box-shadow: 0 2px 16px rgba(30,40,32,0.05);
   cursor: pointer; transition: var(--ease); width: 100%;
 }
 .form-submit-events:hover { background: var(--gold-light); }
+.form-submit-events:disabled { opacity: 0.55; cursor: not-allowed; }
 .form-note-events { font-size: 0.71rem; color: rgba(255,255,255,0.35); text-align: center; }
 
 /* ── AVIS ── */
@@ -494,11 +495,24 @@ footer {
 }
 .section-title em { font-style: italic; color: var(--primary); }
 .section-sub { font-size: 0.88rem; color: var(--muted); margin-top: 0.7rem; }
-.success-msg {
-  display: none; padding: 1rem 1.2rem;
-  background: rgba(255,255,255,0.1);
-  border: 1px solid var(--gold);
-  color: var(--gold-light); font-size: 0.82rem; text-align: center;
+
+/* ── SUCCESS / ERROR ── */
+.form-feedback {
+  display: none;
+  padding: 1rem 1.2rem;
+  border: 1px solid;
+  font-size: 0.82rem; text-align: center;
+  line-height: 1.5;
+}
+.form-feedback.success {
+  background: rgba(255,255,255,0.08);
+  border-color: var(--gold);
+  color: var(--gold-light);
+}
+.form-feedback.error {
+  background: rgba(255,80,60,0.1);
+  border-color: rgba(255,120,100,0.5);
+  color: rgba(255,180,160,0.9);
 }
 
 /* ── RESPONSIVE ── */
@@ -684,29 +698,33 @@ footer {
         </a>
       </div>
 
-      <form class="events-form" id="eventForm" action="https://api.web3forms.com/submit" method="POST" onsubmit="handleEventSubmit(event)">
-        <input type="hidden" name="access_key" value="ea3ffc68-de33-4f11-9a79-24b533d7d74f">
-        <input type="hidden" name="subject" value="Demande événement — Ève Casalta L'Atelier des Fleurs">
-        <input type="checkbox" name="botcheck" style="display:none;">
-
+      <!--
+        CORRECTIONS FORMULAIRE :
+        1. <form> remplacé par <div> + soumission 100% JS (évite tout rechargement natif)
+        2. access_key + botcheck passés en champs hidden dans un FormData construit manuellement
+        3. select : option vide sans "disabled" (validation JS custom à la place)
+        4. Feedback unifié success/error via .form-feedback (plus de .success-msg épars)
+        5. Bouton re-activé en cas d'erreur réseau / API
+      -->
+      <div class="events-form" id="eventForm">
         <h3 class="form-title">Demande de devis</h3>
         <p class="form-sub">Pour un mariage, une réception ou un projet professionnel, décrivez-nous votre projet.</p>
 
         <div class="form-row">
           <div>
             <label class="field-label" for="e-nom">Votre nom</label>
-            <input class="field-input" type="text" id="e-nom" name="nom" placeholder="Prénom Nom" required>
+            <input class="field-input" type="text" id="e-nom" placeholder="Prénom Nom">
           </div>
           <div>
             <label class="field-label" for="e-tel">Téléphone</label>
-            <input class="field-input" type="tel" id="e-tel" name="tel" placeholder="06 00 00 00 00" required>
+            <input class="field-input" type="tel" id="e-tel" placeholder="06 00 00 00 00">
           </div>
         </div>
 
         <div>
           <label class="field-label" for="e-type">Type d'événement</label>
-          <select class="field-select" id="e-type" name="type" required>
-            <option value="" disabled selected>Choisir…</option>
+          <select class="field-select" id="e-type">
+            <option value="">Choisir…</option>
             <option value="mariage">Mariage</option>
             <option value="anniversaire">Anniversaire / Réception privée</option>
             <option value="entreprise">Événement entreprise / Séminaire</option>
@@ -719,22 +737,20 @@ footer {
 
         <div>
           <label class="field-label" for="e-date">Date de l'événement</label>
-          <input class="field-input" type="date" id="e-date" name="date" required>
+          <input class="field-input" type="date" id="e-date">
         </div>
 
         <div>
           <label class="field-label" for="e-message">Décrivez votre projet</label>
-          <input class="field-input" type="text" id="e-message" name="message" placeholder="Lieu, nombre de convives, couleurs souhaitées, budget…">
+          <input class="field-input" type="text" id="e-message" placeholder="Lieu, nombre de convives, couleurs souhaitées, budget…">
         </div>
 
-        <button type="submit" class="form-submit-events">
+        <button type="button" class="form-submit-events" id="eventSubmitBtn" onclick="handleEventSubmit()">
           Envoyer ma demande de devis
         </button>
-        <div class="success-msg" id="eventSuccess">
-          ✓ &nbsp;Votre demande a bien été transmise. Ève vous contactera dans les meilleurs délais.
-        </div>
+        <div class="form-feedback" id="eventFeedback"></div>
         <p class="form-note-events">Réponse personnalisée sous 24h · Prise en charge sur-mesure</p>
-      </form>
+      </div>
     </div>
   </section>
 
@@ -849,50 +865,77 @@ footer {
   }
 })();
 
-function handleEventSubmit(event) {
-  event.preventDefault();
-  
-  var form = document.getElementById('eventForm');
-  var nom = document.getElementById('e-nom').value.trim();
-  var tel = document.getElementById('e-tel').value.trim();
-  var type = document.getElementById('e-type').value;
-  var date = document.getElementById('e-date').value;
-  
+function handleEventSubmit() {
+  // Récupération des valeurs
+  var nom     = document.getElementById('e-nom').value.trim();
+  var tel     = document.getElementById('e-tel').value.trim();
+  var type    = document.getElementById('e-type').value;
+  var date    = document.getElementById('e-date').value;
+  var message = document.getElementById('e-message').value.trim();
+
+  var btn      = document.getElementById('eventSubmitBtn');
+  var feedback = document.getElementById('eventFeedback');
+
+  // Validation simple côté client
   if (!nom || !tel || !type || !date) {
-    alert('Merci de remplir tous les champs obligatoires.');
+    showFeedback('error', '⚠ Veuillez remplir les champs obligatoires : nom, téléphone, type d\'événement et date.');
     return;
   }
-  
-  var btn = form.querySelector('.form-submit-events');
-  var originalBtnText = btn.innerHTML;
-  btn.style.opacity = '0.5';
+
+  // État chargement
   btn.disabled = true;
-  btn.innerText = 'Envoi...';
+  btn.textContent = 'Envoi en cours…';
+  feedback.style.display = 'none';
 
-  var formData = new FormData(form);
+  // Construction du FormData manuellement (évite tout problème lié à <form>)
+  var formData = new FormData();
+  formData.append('access_key', 'ea3ffc68-de33-4f11-9a79-24b533d7d74f');
+  formData.append('subject', 'Demande événement — Ève Casalta L\'Atelier des Fleurs');
+  formData.append('botcheck', '');   // honeypot vide = humain
+  formData.append('nom', nom);
+  formData.append('tel', tel);
+  formData.append('type', type);
+  formData.append('date', date);
+  if (message) formData.append('message', message);
 
-  fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData })
-  .then(function(response) {
-    return response.json();
+  fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    body: formData
   })
-  .then(function(data) {
-    if (data.success) {
-      document.getElementById('eventSuccess').style.display = 'block';
+  .then(function(r) {
+    return r.json().then(function(data) {
+      return { ok: r.ok, data: data };
+    });
+  })
+  .then(function(result) {
+    if (result.ok && result.data.success) {
+      // Succès : masquer le bouton, vider les champs, afficher le message
       btn.style.display = 'none';
-      form.reset();
+      document.getElementById('e-nom').value    = '';
+      document.getElementById('e-tel').value    = '';
+      document.getElementById('e-type').value   = '';
+      document.getElementById('e-date').value   = '';
+      document.getElementById('e-message').value = '';
+      showFeedback('success', '✓ \u00a0Votre demande a bien été transmise. Ève vous contactera dans les meilleurs délais.');
     } else {
-      alert("Une erreur est survenue lors de l'envoi. Merci de réessayer ou de nous appeler directement.");
-      btn.style.opacity = '1';
+      // Réponse API non-OK
       btn.disabled = false;
-      btn.innerHTML = originalBtnText;
+      btn.textContent = 'Envoyer ma demande de devis';
+      showFeedback('error', 'Une erreur s\'est produite (code ' + (result.data.message || 'inconnu') + '). Appelez-nous directement au 01\u00a030\u00a053\u00a067\u00a061.');
     }
   })
   .catch(function() {
-    alert("Erreur réseau. Merci de vérifier votre connexion ou de nous appeler directement.");
-    btn.style.opacity = '1';
     btn.disabled = false;
-    btn.innerHTML = originalBtnText;
+    btn.textContent = 'Envoyer ma demande de devis';
+    showFeedback('error', 'Erreur réseau. Vérifiez votre connexion ou appelez-nous au 01\u00a030\u00a053\u00a067\u00a061.');
   });
+}
+
+function showFeedback(type, message) {
+  var el = document.getElementById('eventFeedback');
+  el.className = 'form-feedback ' + type;
+  el.textContent = message;
+  el.style.display = 'block';
 }
 
 document.querySelectorAll('a[href^="#"]').forEach(function(a) {
