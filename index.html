@@ -684,7 +684,7 @@ footer {
         </a>
       </div>
 
-      <form class="events-form" id="eventForm" onsubmit="handleEventSubmit(event)">
+      <form class="events-form" id="eventForm" action="https://api.web3forms.com/submit" method="POST" onsubmit="handleEventSubmit(event)">
         <input type="hidden" name="access_key" value="ea3ffc68-de33-4f11-9a79-24b533d7d74f">
         <input type="hidden" name="subject" value="Demande événement — Ève Casalta L'Atelier des Fleurs">
         <input type="checkbox" name="botcheck" style="display:none;">
@@ -851,25 +851,47 @@ footer {
 
 function handleEventSubmit(event) {
   event.preventDefault();
+  
   var form = document.getElementById('eventForm');
+  var nom = document.getElementById('e-nom').value.trim();
+  var tel = document.getElementById('e-tel').value.trim();
+  var type = document.getElementById('e-type').value;
+  var date = document.getElementById('e-date').value;
+  
+  if (!nom || !tel || !type || !date) {
+    alert('Merci de remplir tous les champs obligatoires.');
+    return;
+  }
+  
   var btn = form.querySelector('.form-submit-events');
-  btn.style.opacity = '0.5'; btn.disabled = true; btn.textContent = 'Envoi…';
+  var originalBtnText = btn.innerHTML;
+  btn.style.opacity = '0.5';
+  btn.disabled = true;
+  btn.innerText = 'Envoi...';
 
-  fetch('https://api.web3forms.com/submit', {
-    method: 'POST', body: new FormData(form)
+  var formData = new FormData(form);
+
+  fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData })
+  .then(function(response) {
+    return response.json();
   })
-  .then(function(r) {
-    if (r.ok) {
+  .then(function(data) {
+    if (data.success) {
       document.getElementById('eventSuccess').style.display = 'block';
-      btn.style.display = 'none'; form.reset();
+      btn.style.display = 'none';
+      form.reset();
     } else {
-      alert("Une erreur s'est produite. Appelez-nous directement au 01 30 53 67 61.");
-      btn.style.opacity = '1'; btn.disabled = false; btn.textContent = 'Envoyer ma demande de devis';
+      alert("Une erreur est survenue lors de l'envoi. Merci de réessayer ou de nous appeler directement.");
+      btn.style.opacity = '1';
+      btn.disabled = false;
+      btn.innerHTML = originalBtnText;
     }
   })
   .catch(function() {
-    alert("Erreur réseau. Appelez-nous au 01 30 53 67 61.");
-    btn.style.opacity = '1'; btn.disabled = false; btn.textContent = 'Envoyer ma demande de devis';
+    alert("Erreur réseau. Merci de vérifier votre connexion ou de nous appeler directement.");
+    btn.style.opacity = '1';
+    btn.disabled = false;
+    btn.innerHTML = originalBtnText;
   });
 }
 
